@@ -11,7 +11,7 @@
                     <table class="table table-bordered table-striped table-hover">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                <th>id</th>
                                 <th>Tanggal</th>
                                 <th>Nama Pasien</th>
                                 <th>Nama Dokter</th>
@@ -24,8 +24,8 @@
                             <tr>
                                 <td>{{ $a->id }}</td>
                                 <td>{{ $a->tanggal }}</td>
-                                <td>{{ $a->pasien_id }}</td>
-                                <td>{{ $a->dokter_id }}</td>
+                                <td>{{ $a->pasien->nama_pasien }}</td>
+                                <td>{{ $a->dokter->nama_dokter }}</td>
                                 <td>{{ $a->biaya }}</td>
                                 <td>
 
