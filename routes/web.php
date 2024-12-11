@@ -25,16 +25,14 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::middleware('auth')->group(function () {
+    Route::resource('dokter', DokterController::class);
+    Route::get('dokter/laporan/cetak', [DokterController::class, 'laporan'])->name('dokter.laporan');
 
-Route::resource('dokter', DokterController::class);
-Route::get('dokter/laporan/cetak',[DokterController::class, 'laporan']);
+    Route::resource('pasien', PasienController::class);
+    Route::get('pasien/laporan/cetak', [PasienController::class, 'laporan'])->name('pasien.laporan');
 
-Route::resource('pasien', PasienController::class);
-Route::get('pasien/laporan/cetak',[PasienController::class, 'laporan']);
-
-Route::resource('administrasi', AdministrasiController::class);
-Route::get('administrasi/laporan/cetak',[AdministrasiController::class, 'laporan']);
-
-
+    Route::resource('administrasi', AdministrasiController::class);
+    Route::get('administrasi/laporan/cetak', [AdministrasiController::class, 'laporan'])->name('administrasi.laporan');
 });

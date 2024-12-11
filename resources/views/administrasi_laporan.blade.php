@@ -23,26 +23,24 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Kode Pasien</th>
+                            <th>Tanggal</th>
                             <th>Nama Pasien</th>
-                            <th>Jenis Kelamin</th>
-                            <th>Status</th>
-                            <th>Alamat</th>
+                            <th>Nama Dokter</th>
+                            <th>Biaya</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($pasien as $a)
+                        @forelse ($administrasi as $a)
                         <tr>
                             <td>{{ $a->id }}</td>
-                            <td>{{ $a->kode_pasien }}</td>
+                            <td>{{ $a->tanggal }}</td>
                             <td>{{ $a->nama_pasien }}</td>
-                            <td>{{ $a->jenis_kelamin }}</td>
-                            <td>{{ $a->status }}</td>
-                            <td>{{ $a->alamat }}</td>
+                            <td>{{ $a->nama_dokter }}</td>
+                            <td>{{ $a->biaya }}</td>
                         </tr>
                         @empty
                         <tr>
-                            <td colspan="6" class="text-center">Tidak ada data pasien.</td>
+                            <td colspan="6" class="text-center">Tidak ada administrasi</td>
                         </tr>
                         @endforelse
                     </tbody>
