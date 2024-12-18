@@ -18,9 +18,7 @@ use App\Models\Pasien;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[PasienController::class,'registrasi']);
 
 Auth::routes();
 
@@ -32,7 +30,7 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('pasien', PasienController::class);
     Route::get('pasien/laporan/cetak', [PasienController::class, 'laporan'])->name('pasien.laporan');
-
+    Route::get('pasien/cari/data', [PasienController::class,'cari']);
     Route::resource('administrasi', AdministrasiController::class);
     Route::get('administrasi/laporan/cetak', [AdministrasiController::class, 'laporan'])->name('administrasi.laporan');
 });

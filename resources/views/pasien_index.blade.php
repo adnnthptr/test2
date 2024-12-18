@@ -8,6 +8,12 @@
                 <div class="card-header">
                     {{ $judul }}
                 </div>
+                <div>    
+                 <form class="d-flex" role="search" method="get" action="{{ url('pasien/cari/data', []) }}">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"name="search"> &nbsp;
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+                </div>
                 <div class="card-body">
                     <table class="table table-bordered table-striped table-hover">
                         <thead>

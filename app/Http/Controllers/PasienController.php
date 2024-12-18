@@ -116,5 +116,22 @@ class PasienController extends Controller
         ];
         return view('pasien_laporan', $data);
     }
+    
+    public function cari(Request $request)
+    {
+    $cari = $request->get('search'); 
+    $data['pasien'] = \App\Models\Pasien::where('nama_pasien', 'like', "%{$cari}%")
+        ->orWhere('alamat', 'like', "%{$cari}%")
+        ->paginate(5);
+    $data['judul'] = 'Data-data Pasien';
+    return view('pasien_index', $data);
+    }
+
+    public function registrasi()
+    {
+    $data['list_sp'] = ['Pria', 'Wanita']; 
+    return view('registrasi_form', $data);
+    }
+
 
 }
